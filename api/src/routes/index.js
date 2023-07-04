@@ -1,7 +1,6 @@
 const { Router } = require("express");
 const {
   dogsHandler,
-  dogByIdHandler,
   dogPostHandler,
   temperamentsHandler,
 } = require("../handlers");
