@@ -1,9 +1,8 @@
 const { Router } = require("express");
-const {
-  dogsHandler,
-  dogPostHandler,
-  temperamentsHandler,
-} = require("../handlers");
+const dogsHandler = require("../handlers/dogsHandler");
+const dogByIdHandler = require("../handlers/dogsByIdHandler");
+const dogPostHandler = require("../handlers/dogPostHandler");
+const temperamentsHandler = require("../handlers/temperamentsHandler");
 
 const router = Router();
 

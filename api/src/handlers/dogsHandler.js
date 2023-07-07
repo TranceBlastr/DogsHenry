@@ -3,6 +3,7 @@ const { allDogsController } = require("../controllers/allDogsController");
 
 const dogsHandler = async (req, res) => {
   const { name } = req.query;
+
   try {
     const dogs = name
       ? await dogByNameController(name)
