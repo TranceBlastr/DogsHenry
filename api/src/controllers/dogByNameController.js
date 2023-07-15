@@ -1,11 +1,17 @@
 const axios = require("axios");
 const cleanSingleDog = require("../helpers/cleanSingleDog");
 const { Dog } = require("../db");
+const { Op } = require("sequelize");
 
 const dogByNameController = async (name) => {
   const filteredName = name.replace(/-/g, " ");
   try {
-    const dogInDB = await Dog.findOne({ where: { name: filteredName } });
+    const dogInDB = await Dog.findAll({
+      where: {
+        name: { [Op.iLike]: `%${filteredName}%` },
+        include: Temperament,
+      },
+    });
     if (dogInDB !== null) return dogInDB;
 
     const { data } = await axios.get("https://api.thedogapi.com/v1/breeds");

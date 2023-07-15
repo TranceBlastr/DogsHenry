@@ -1,7 +1,8 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+// import {useLocation } from "react-router-dom";
+// import NavBar from "./Components/NavBar/NavBar";
+// import styles from "./App.module.css";
+import { Routes, Route } from "react-router-dom";
 import { Landing, Home, Form, Detail } from "./views";
-import NavBar from "./Components/NavBar/NavBar";
-import styles from "./App.module.css";
 
 function App() {
   // const { pathname } = useLocation();

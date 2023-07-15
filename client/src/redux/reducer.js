@@ -6,7 +6,7 @@ import {
 } from "./actionTypes";
 
 const initialState = {
-  dogs: [],
+  allDogs: [],
   dogName: [],
   detail: {},
   temperament: [],
@@ -14,7 +14,7 @@ const initialState = {
 function rootReducer(state = initialState, action) {
   switch (action.type) {
     case GET_DOGS:
-      return { ...state };
+      return { ...state, allDogs: action.payload };
     case GET_DOG_BY_ID:
       return { ...state, detail: action.payload };
     case GET_DOG_BY_NAME:

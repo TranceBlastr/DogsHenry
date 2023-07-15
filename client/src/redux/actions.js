@@ -6,38 +6,36 @@ import {
   GET_TEMPERAMENT,
 } from "./actionTypes";
 
-export function GetAllDogs() {
+export function getAllDogs() {
   return async function (dispatch) {
-    const response = await axios.get("https://localhost:3001/dogs");
+    const response = await axios.get("http://localhost:3001/dogs");
     return dispatch({
       type: GET_DOGS,
       payload: response,
     });
   };
 }
-export function GetDogsById(id) {
+export function getDogsById(id) {
   return async function (dispatch) {
-    const response = await axios.get(`https://localhost:3001/dogs/${id}`);
+    const response = await axios.get(`http://localhost:3001/dogs/${id}`);
     return {
       type: GET_DOG_BY_ID,
       payload: response,
     };
   };
 }
-export function GetDogByName(name) {
+export function getDogByName(name) {
   return async function (dispatch) {
-    const response = await axios.get(
-      `https://localhost:3001/dogs?name=${name}`
-    );
+    const response = await axios.get(`http://localhost:3001/dogs?name=${name}`);
     return {
       type: GET_DOG_BY_NAME,
       payload: response,
     };
   };
 }
-export function GetTemperament() {
+export function getTemperament() {
   return async function (dispatch) {
-    const response = await axios.get(`https://localhost:3001/temperament`);
+    const response = await axios.get(`http://localhost:3001/temperament`);
     return {
       type: GET_TEMPERAMENT,
       payload: response,
