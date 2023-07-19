@@ -1,10 +1,9 @@
 .detail{
   display: grid;
-  
   grid-template-columns: repeat(10, 1fr);
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
-align-items: center;
+  align-items: center;
   background-image: var(--background-image-url);
   backdrop-filter: blur(500px);
   object-fit: cover;

@@ -8,11 +8,15 @@ const NavBar = ({handleChange, handleSubmit}) => {
  
   return (
     <div className={styles.nav}>
+    <div>
+     <SearchBar handleChange={handleChange} handleSubmit={handleSubmit}/>
+    </div>
+    
+    <div>
     <ButtonLanding/>
     <ButtonHome/>
     <ButtonForm/>
-      
-     <SearchBar handleChange={handleChange} handleSubmit={handleSubmit}/>
+    </div>
     </div>
   );
 };

@@ -47,7 +47,7 @@ dispatch(getDogByName(searchString))
 
   return (
     <div className={styles.home}>
-      <h2 className={styles.homeTitle}>Home</h2>
+      {/* <h2 className={styles.homeTitle}>Home</h2> */}
       <NavBar handleChange={handleChange} handleSubmit={handleSubmit}/>
       {/* <CardContainer allDogs={filtered}/> */}
       <CardContainer allDogs={allDogs}/>

@@ -1,8 +1,11 @@
 .searchBox{
-  -webkit-appearance: none;
+  /* -webkit-appearance: none; */
+  display: flex;
+  flex-direction: row;
   border: none;
   padding: 10px;
   width: 150px;
   line-height: 30px;
   margin-bottom: 30px;
+  background-color: blue;
 }
