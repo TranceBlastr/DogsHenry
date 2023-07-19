@@ -1,0 +1,75 @@
+.form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+}
+.form h3 {
+  text-decoration: underline black;
+}
+.form input[type="text"],
+.form input[type="list"],
+.form input[type="number"] {
+  text-align: center;
+  width: 60%;
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form input[type="number"]{
+  width: 15%;
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.ranges{
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  margin-right: 2px;
+  justify-content: center;
+  gap:10px
+  
+}
+.close{
+  background-color: #cf490b;
+  color: #fff;
+  border: none;
+  padding: 10px 10px;
+  border-radius: 4px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.submit {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form .error {
+  color: red;
+  margin-top: 5px;
+}
+
+.select select{
+  text-align: center;
+  width: 60%;
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

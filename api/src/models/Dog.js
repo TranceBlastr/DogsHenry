@@ -22,11 +22,11 @@ module.exports = (sequelize) => {
         defaultValue: "No image available.",
       },
       height: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.STRING,
         allowNull: false,
       },
       weight: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.STRING,
         allowNull: false,
       },
       lifeSpan: {

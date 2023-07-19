@@ -5,7 +5,7 @@ const {
 const dogsByIdHandler = async (req, res) => {
   const { id } = req.params;
   try {
-    dog = await getDogByIdController(id);
+    const dog = await getDogByIdController(id);
     res.status(200).json(dog);
   } catch (error) {
     res.status(404).json({ error: error.message });

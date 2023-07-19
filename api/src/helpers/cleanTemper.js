@@ -11,7 +11,16 @@ function cleanTemper(dogs) {
       });
     }
   });
-  return palabrasUnicas;
+  const temperaments = [];
+
+  for (let i = 0; i < palabrasUnicas.length; i++) {
+    const temperamentObj = {
+      name: palabrasUnicas[i],
+    };
+    temperaments.push(temperamentObj);
+  }
+
+  return temperaments;
 }
 
 module.exports = cleanTemper;

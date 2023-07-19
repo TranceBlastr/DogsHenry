@@ -1,7 +1,8 @@
 const axios = require("axios");
 const cleanSingleDog = require("../helpers/cleanSingleDog");
-const { Dog } = require("../db");
+const { Dog, Temperament } = require("../db");
 const { Op } = require("sequelize");
+const { API_KEY } = process.env;
 
 const dogByNameController = async (name) => {
   const filteredName = name.replace(/-/g, " ");
@@ -9,15 +10,17 @@ const dogByNameController = async (name) => {
     const dogInDB = await Dog.findAll({
       where: {
         name: { [Op.iLike]: `%${filteredName}%` },
-        include: Temperament,
       },
+      include: Temperament,
     });
-    if (dogInDB !== null) return dogInDB;
+    if (dogInDB.length !== 0) return dogInDB;
 
-    const { data } = await axios.get("https://api.thedogapi.com/v1/breeds");
+    const { data } = await axios.get(`https://api.thedogapi.com/v1/breeds`);
+
     const dogInApi = data.find((element) => {
-      return element.name.toLowerCase() === filteredName.toLowerCase();
+      return element.name.toLowerCase().includes(filteredName.toLowerCase());
     });
+
     if (dogInApi !== undefined) {
       const cleanedDog = cleanSingleDog(dogInApi);
       return cleanedDog;

@@ -4,14 +4,35 @@
  background-color: aquamarine;
  border: 1px solid gray;
  border-radius: 5px;
- padding: 25px;
+ padding: 30px;
  cursor: pointer;
  -moz-animation-font-smoothing: grayscale;
  backface-visibility: hidden;
  transform: translateZ(0);
  transition: transform 0.25s ease-out;
+ height:400px;
+ width:200px;
+ 
 }
 
 .card:hover{
 transform:scale(1.05)
+}
+
+.card img{
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  object-position: top center;
+}
+a:link,
+a:visited {
+  color: inherit; 
+  text-decoration: none;
+}
+
+.card p{
+margin:5px 0;
+text-decoration: underline black;
+font-size: 15px;
 }
