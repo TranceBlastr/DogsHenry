@@ -1,5 +1,5 @@
 import styles from "./Buttons.module.css"
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {getAllDogs} from "../../redux/actions"
 
 const ButtonReset = ()=>{

@@ -21,7 +21,6 @@ const getDogByIdController = async (id) => {
 
       // Usamos la función mapTemperaments para obtener el objeto con los temperamentos ajustados
       const dogWithTemperaments = cleanDogFromDB(dogInDB);
-      // Retornamos el objeto del perro con los temperamentos ajustados
       return dogWithTemperaments;
     } else {
       // Si el id no contiene un guión, significa que es un id numérico y lo buscamos en la API externa

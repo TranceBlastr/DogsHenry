@@ -30,8 +30,8 @@ return(
     <div className={styles.data}>
     <h1>{dogDetail.name}</h1>
     <h5>{`ID: ${dogDetail.id}`}</h5>
-    <h3>{`Weight: ${dogDetail.weight}kgs`}</h3>
-    <h3>{`Height: ${dogDetail.height}`}</h3>
+    <h3>{`Weight: ${dogDetail.weight} kg`}</h3>
+    <h3>{`Height: ${dogDetail.height} cm`}</h3>
     <h3>{`Life Span: ${dogDetail.lifeSpan}`}</h3>
     <h3>{`Temperament: ${dogDetail.temperament}.`}</h3>
 

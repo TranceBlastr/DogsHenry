@@ -15,6 +15,7 @@ const initialState = {
   temperament: [],
   dogName: [],
   detail: {},
+  filteredDogs: [],
 };
 function rootReducer(state = initialState, action) {
   switch (action.type) {
@@ -23,6 +24,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         allDogs: action.payload,
         allDogsAux: action.payload,
+        filteredDogs: action.payload,
       };
 
     case GET_TEMPERAMENT:
@@ -52,6 +54,7 @@ function rootReducer(state = initialState, action) {
         return {
           ...state,
           allDogs: filteredDogs,
+          filteredDogs: filteredDogs,
         };
       } else
         return {
@@ -60,31 +63,27 @@ function rootReducer(state = initialState, action) {
         };
 
     case FILTER_BY_ORIGIN:
-      const { payload } = action;
-      if (payload === "all") {
-        // Si el valor es "all", se muestra el listado completo sin filtrar
+      if (action.payload === "all") {
         return {
           ...state,
-          allDogs: state.allDogsAux,
+          allDogs: state.filteredDogs,
         };
       } else {
-        // Filtrar por el valor de createdInDb
-        const filteredDogs = state.allDogsAux.filter((dog) =>
-          payload === "api" ? !dog.createdInDb : dog.createdInDb
+        const filteredByOrigin = state.filteredDogs.filter((dog) =>
+          action.payload === "api" ? !dog.createdInDb : dog.createdInDb
         );
         return {
           ...state,
-          allDogs: filteredDogs,
+          allDogs: filteredByOrigin,
         };
       }
 
-    case FILTER_BY_WEIGHT:
-      return {
-        ...state,
-        allDogs: "filteredDogs",
-      };
-
     case ORDER:
+      if (action.payload === "sel") {
+        return {
+          ...state,
+        };
+      }
       const sortedDogs = state.allDogs.slice().sort(function (a, b) {
         if (action.payload === "asc") {
           return a.name.localeCompare(b.name);
@@ -97,6 +96,38 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         allDogs: sortedDogs,
+        filteredDogs: sortedDogs,
+      };
+
+    case FILTER_BY_WEIGHT:
+      if (action.payload === "sel") {
+        return { ...state, allDogs: state.allDogsAux };
+      }
+
+      const sortedDogsByWeight = state.filteredDogs.slice().sort((a, b) => {
+        const aWeight = a.weight.split(" - ")[0];
+        const bWeight = b.weight.split(" - ")[0];
+
+        // Comparar cuando ambos tienen números
+        if (!isNaN(aWeight) && !isNaN(bWeight)) {
+          return action.payload === "asc"
+            ? aWeight - bWeight
+            : bWeight - aWeight;
+        }
+
+        // Colocar "NaN" al final en el ordenamiento
+        if (isNaN(aWeight) && isNaN(bWeight)) {
+          return action.payload === "asc" ? 1 : -1;
+        }
+
+        // Colocar "NaN" al final y números al inicio
+        return isNaN(aWeight) ? 1 : -1;
+      });
+
+      return {
+        ...state,
+        allDogs: sortedDogsByWeight,
+        filteredDogs: sortedDogsByWeight,
       };
 
     default:

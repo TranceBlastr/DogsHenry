@@ -10,16 +10,29 @@ import {
 import CardContainer from "../../Components/CardContainer/CardContainer"
 import NavBar from "../../Components/NavBar/NavBar"
 import FilterBar from "../../Components/FilterBar/FilterBar";
+import Paginado from "../../Components/Paginado/Paginado"
 
 import styles from "./Home.module.css"
 
 
 const Home =()=>{
   const dispatch = useDispatch();
-  const allDogs = useSelector((state) => state.allDogs)
+  const allDogs= useSelector((state) => state.allDogs)
+
+  //!-------Paginado
+  const [currentPage, setCurrentPage] = useState(1)
+  // eslint-disable-next-line no-unused-vars
+  const [dogsPerPage, setDogsPerPage] = useState(8)
+  const indexOfLastCharacter = currentPage * dogsPerPage
+  const indexOfFirstCharacter = indexOfLastCharacter - dogsPerPage
+  const currentCharacters = allDogs.slice(indexOfFirstCharacter,indexOfLastCharacter)
+
+  const paginado = (pageNumber) =>{
+    setCurrentPage(pageNumber)
+  }
   
   const [searchString, setSearchString]=useState("")
-
+  
 
   
   
@@ -46,7 +59,11 @@ useEffect(() => {
     <div className={styles.home}>
       <NavBar handleChange={handleChange} handleSubmit={handleSubmit}/>
       <FilterBar/>
-      <CardContainer allDogs={allDogs}/>
+      <Paginado
+        dogsPerPage={dogsPerPage}
+        allDogs={allDogs}
+        paginado={paginado}/>
+      <CardContainer allDogs={currentCharacters}/>
    </div>
   )
 }

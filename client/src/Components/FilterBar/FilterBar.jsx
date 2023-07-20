@@ -1,19 +1,21 @@
-import React, { useEffect } from 'react';
-import styles from "./FilterBar.module.css"
-import bone from "../../image/bone.png"
+import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
+
+import bone from "../../image/bone.png"
+
 import {
-  getTemperament,
   filterByTemperament,
   filterByOrigin,
-  filterByOrder
+  filterByOrder,
+  filterByWeight
 } from "../../redux/actions"
+
+import styles from "./FilterBar.module.css"
 
 const FilterBar = () => {
   const dispatch = useDispatch();
   const allTemperaments = useSelector((state) => state.temperament)
   
-
   //!-----Temperament
   const handleTemperamentFilterChange = (event)=>{
     const selectedOption = event.target.value;
@@ -27,13 +29,6 @@ const FilterBar = () => {
       dispatch(filterByOrigin(selectedOption))
   }
 
-
-
-
-
-
-
-
 //!-----Order
   const handleOrderFilterChange = (event)=>{
     const selectedOption = event.target.value;
@@ -44,15 +39,9 @@ const FilterBar = () => {
   //!-----Weight
   const handleWeightFilterChange = (event)=>{
     const selectedOption = event.target.value;
-      dispatch(filterByOrigin(selectedOption))
+      dispatch(filterByWeight(selectedOption))
 
   }
-
-
-
-
-
-
 
 //!--------------------------------------------------------------
   return (
@@ -88,7 +77,7 @@ const FilterBar = () => {
       <label>Order:</label>
       <select
         onChange={handleOrderFilterChange}>
-        {/* <option value="sel">Select order </option> */}
+        <option value="sel">Select order </option>
         <option value="asc">Ascending</option>
         <option value="desc">Descending</option>
       </select>
@@ -98,7 +87,7 @@ const FilterBar = () => {
        <label>Weight:</label>
       <select
         onChange={handleWeightFilterChange}>
-        {/* <option value="sel">Select order </option> */}
+        <option value="sel">Select order </option>
         <option value="asc">Ascending</option>
         <option value="desc">Descending</option>
       </select>

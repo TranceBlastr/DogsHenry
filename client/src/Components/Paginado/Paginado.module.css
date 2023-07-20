@@ -1,0 +1,54 @@
+
+.container {
+  width: 70vw;
+  padding: 3px;
+  background-image: url("../../image/5.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  font-weight: 600;
+text-shadow: 1px 1px 10px black;
+background-color: rgb(80, 80, 80);
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);;
+background-blend-mode: multiply;
+} 
+
+.paginado {
+  width: 65vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 5px;
+  flex-wrap: wrap;
+}
+
+.paginado a {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  height: 25px;
+  width: 20px;
+  min-width: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1; 
+  margin: 5px;
+}
+
+.paginado a:hover {
+  background-color: #357e3a;
+}
+
+.paginado a:active {
+  transform: scale(0.95);
+} 
