@@ -1,7 +1,59 @@
-.button{
-background-color: #4caf50;
-color: #fff;
-border: none;
-padding: 10px 20px;
-border-radius: 4px;
-cursor: pointer;}
+/* Estilos compartidos */
+.button,
+.buttonHome,
+.buttonLanding,
+.buttonForm,
+.buttonSearch,
+.buttonReset {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 20px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-size: 24px 24px; 
+  background-repeat: no-repeat;
+  display: flex;
+  background-position: center;
+  
+}
+
+.button:hover,
+.buttonHome:hover,
+.buttonLanding:hover,
+.buttonForm:hover,
+.buttonSearch:hover,
+.buttonReset:hover {
+  background-color: #357e3a;
+}
+
+.button:active,
+.buttonHome:active,
+.buttonLanding:active,
+.buttonForm:active,
+.buttonSearch:active,
+.buttonReset:active {
+  transform: scale(0.95);
+}
+
+.buttonHome {
+  background-image: url("../../image/botones/home.png");
+}
+
+.buttonLanding {
+  background-image: url("../../image/botones/landing.png");
+}
+
+.buttonForm {
+  background-image: url("../../image/botones/create.png");
+}
+
+.buttonSearch{
+  /* background-image: url("../../image/botones/search.png"); */
+  padding: 8px 8px;
+}
+
+.buttonReset{
+  background-image: url("../../image/botones/reset.png");
+}

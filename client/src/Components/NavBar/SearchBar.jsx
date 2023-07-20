@@ -1,22 +1,22 @@
-import styles from "./SearchBar.module.css"
-
-function SearchBar ({handleChange, handleSubmit}) {
+import React from 'react';
+import styles from './SearchBar.module.css';
+import ButtonSearch from "../Buttons/ButtonSearch";
+function SearchBar({ handleChange, handleSubmit }) {
   return (
     <div className={styles.searchBox}>
-     <div>
-      <form onChange={handleChange}>
-        <input placeholder="Busqueda" type="search"/>
-      </form>
-
-     </div>
-     <div>
-
-        <button type="submit" onClick={handleSubmit}>
-          Buscara
-          </button>
-     </div>
+      <div>
+        <form onChange={handleChange}>
+          <input placeholder="Busqueda" type="search" />
+        </form>
+      </div>
+      <div>
+        {/* <button type="submit" className= {styles.button} onClick={handleSubmit}>
+          Buscar
+        </button> */}
+         <ButtonSearch onClick={handleSubmit} />
+      </div>
     </div>
-  )
+  );
 }
 
-export default SearchBar
+export default SearchBar;

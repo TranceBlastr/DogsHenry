@@ -1,10 +1,13 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import validate from './validate'; // Importar la función de validación desde el archivo validate.js
-import styles from "./Form.module.css"
 import { getTemperament, postDog } from '../../redux/actions';
-import ButtonHome from "../../Components/Buttons/ButtonHome"
+
+import FormNav from '../../Components/NavBar/FormNav';
+import validate from './validate';
+
+import styles from "./Form.module.css"
+
 const Form = () => {
   const dispatch = useDispatch();
   useEffect(()=>{
@@ -27,14 +30,7 @@ const Form = () => {
     lifeSpanMax: '',
     temperament: [],
   });
-  // const [newDog, setNewDog] = useState({
-  //   name: '',
-  //   image: '',
-  //   height: '',
-  //   weight: '',
-  //   lifeSpan: '',
-  //   temperament: [],
-  // })
+
   const [errors, setErrors] = useState({
     name: '',
     image: '',
@@ -122,17 +118,15 @@ const Form = () => {
   
   return (
     <div>
-
+      <div className={styles.formnav}>
+      <FormNav/>
+      </div>
     <form className= {styles.form} onSubmit={handleSubmit}>
 {/*------------------------------------------------------------------------------------ */}      
 
         <h1>Creating a new dog!</h1>
 
-{/*------------------------------------------------------------------------------------ */}
-
-        <ButtonHome/>
-
-{/*------------------------------------------------------------------------------------ */}
+{/* ------------------------------------------------------------------------------------ */}
 
         <h3 >Breed name</h3>
       <div>
@@ -275,6 +269,7 @@ const Form = () => {
       <button className={styles.submit} type="submit" onClick={handleSubmit}>Submit</button>
       
     </form>
+    <p></p>
     </div>
   );
 };

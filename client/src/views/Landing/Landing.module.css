@@ -18,8 +18,8 @@ align-items: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../../image/logo.png);
-    grid-column: 3 / 10;
+    background-image: url(../../image/logo-landing.png);
+    grid-column: 2 / 10;
     grid-row: 1;
     /* outline: 1px solid black; */
     width: 25vw;

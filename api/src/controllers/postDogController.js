@@ -35,16 +35,19 @@ const postDogController = async (
     if (!created) {
       return res.status(400).json({ error: "El perro ya existe en nuestra base de datos." });
     }
+    const temperamentPromises = temperament.map(async (temp) => {
+      const findTemperament = await Temperament.findOne({
+        where: {
+          name: temp,
+        },
+      });
 
-    const findTemperament = await Temperament.findAll({
-      where: {
-        name: temperament,
-      },
+      return createdDog.addTemperament(findTemperament);
     });
 
-    await createdDog.addTemperament(findTemperament);
+    await Promise.all(temperamentPromises);
 
-    return res.status(201).json("Perro creado con exito!");
+    // return res.status(201).json("Perro creado con exito!");
   } catch (error) {
     console.log(error);
     // throw new Error("Error al postear el perro");

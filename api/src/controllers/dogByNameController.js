@@ -3,6 +3,7 @@ const cleanSingleDog = require("../helpers/cleanSingleDog");
 const { Dog, Temperament } = require("../db");
 const { Op } = require("sequelize");
 const { API_KEY } = process.env;
+const cleanDogFromDB = require("../helpers/cleanDogFromDB");
 
 const dogByNameController = async (name) => {
   const filteredName = name.replace(/-/g, " ");
@@ -13,7 +14,11 @@ const dogByNameController = async (name) => {
       },
       include: Temperament,
     });
-    if (dogInDB.length !== 0) return dogInDB;
+
+    if (dogInDB.length !== 0) {
+      const cleanedDogs = dogInDB.map((dog) => cleanDogFromDB(dog));
+      return cleanedDogs;
+    }
 
     const { data } = await axios.get(`https://api.thedogapi.com/v1/breeds`);
 
@@ -23,10 +28,12 @@ const dogByNameController = async (name) => {
 
     if (dogInApi !== undefined) {
       const cleanedDog = cleanSingleDog(dogInApi);
-      return cleanedDog;
+      return [cleanedDog];
     }
   } catch (error) {
+    console.log(error);
     throw new Error("Error en dogByNameController/ perro no encontrado");
   }
 };
+
 module.exports = { dogByNameController };

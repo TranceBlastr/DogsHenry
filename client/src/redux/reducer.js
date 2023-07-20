@@ -3,11 +3,15 @@ import {
   GET_DOG_BY_ID,
   GET_DOG_BY_NAME,
   GET_TEMPERAMENT,
+  FILTER_BY_TEMPERAMENT,
+  FILTER_BY_ORIGIN,
+  FILTER_BY_WEIGHT,
+  ORDER,
 } from "./actionTypes";
 
 const initialState = {
   allDogs: [],
-  allDogsCopy: [],
+  allDogsAux: [],
   temperament: [],
   dogName: [],
   detail: {},
@@ -18,7 +22,7 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         allDogs: action.payload,
-        allDogsCopy: action.payload,
+        allDogsAux: action.payload,
       };
 
     case GET_TEMPERAMENT:
@@ -36,7 +40,63 @@ function rootReducer(state = initialState, action) {
     case GET_DOG_BY_NAME:
       return {
         ...state,
-        dogName: action.payload,
+        allDogs: action.payload,
+      };
+
+    case FILTER_BY_TEMPERAMENT:
+      if (action.payload !== "") {
+        const filteredDogs = state.allDogsAux.filter((dog) => {
+          const temperaments = dog.temperament.split(", ");
+          return temperaments.includes(action.payload);
+        });
+        return {
+          ...state,
+          allDogs: filteredDogs,
+        };
+      } else
+        return {
+          ...state,
+          allDogs: state.allDogsAux,
+        };
+
+    case FILTER_BY_ORIGIN:
+      const { payload } = action;
+      if (payload === "all") {
+        // Si el valor es "all", se muestra el listado completo sin filtrar
+        return {
+          ...state,
+          allDogs: state.allDogsAux,
+        };
+      } else {
+        // Filtrar por el valor de createdInDb
+        const filteredDogs = state.allDogsAux.filter((dog) =>
+          payload === "api" ? !dog.createdInDb : dog.createdInDb
+        );
+        return {
+          ...state,
+          allDogs: filteredDogs,
+        };
+      }
+
+    case FILTER_BY_WEIGHT:
+      return {
+        ...state,
+        allDogs: "filteredDogs",
+      };
+
+    case ORDER:
+      const sortedDogs = state.allDogs.slice().sort(function (a, b) {
+        if (action.payload === "asc") {
+          return a.name.localeCompare(b.name);
+        } else if (action.payload === "desc") {
+          return b.name.localeCompare(a.name);
+        } else {
+          return 0;
+        }
+      });
+      return {
+        ...state,
+        allDogs: sortedDogs,
       };
 
     default:

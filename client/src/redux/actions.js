@@ -4,6 +4,10 @@ import {
   GET_DOG_BY_ID,
   GET_DOG_BY_NAME,
   GET_TEMPERAMENT,
+  FILTER_BY_TEMPERAMENT,
+  FILTER_BY_ORIGIN,
+  FILTER_BY_WEIGHT,
+  ORDER,
 } from "./actionTypes";
 
 export function getAllDogs() {
@@ -29,7 +33,7 @@ export function getDogByName(name) {
     const response = await axios.get(`http://localhost:3001/dogs?name=${name}`);
     return dispatch({
       type: GET_DOG_BY_NAME,
-      payload: response,
+      payload: response.data,
     });
   };
 }
@@ -51,5 +55,31 @@ export const postDog = (form) => {
     } catch (error) {
       alert(error);
     }
+  };
+};
+
+export const filterByTemperament = (temperament) => {
+  return {
+    type: FILTER_BY_TEMPERAMENT,
+    payload: temperament,
+  };
+};
+
+export const filterByOrigin = (origin) => {
+  return {
+    type: FILTER_BY_ORIGIN,
+    payload: origin,
+  };
+};
+export const filterByWeight = (direction) => {
+  return {
+    type: FILTER_BY_WEIGHT,
+    payload: direction,
+  };
+};
+export const filterByOrder = (direction) => {
+  return {
+    type: ORDER,
+    payload: direction,
   };
 };

@@ -1,9 +1,7 @@
 .card{
  display:flex;
  flex-direction: column;
- /* background-color: aquamarine; */
  background-image: url("../../image/1.png");
- 
  border-radius: 5px;
  padding: 30px;
  cursor: pointer;

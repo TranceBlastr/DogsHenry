@@ -3,7 +3,7 @@ import styles from "./Buttons.module.css"
 const ButtonHome = ()=>{
   return (
 <Link to="/home">
-      <button className={styles.button}>Home</button>
+      <button className={styles.buttonHome}></button>
 </Link>
     )}
 export default ButtonHome

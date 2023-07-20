@@ -11,7 +11,6 @@ const Detail = ()=> {
   const dispatch = useDispatch();
   const { id } = useParams();
   useEffect(() => {
-    console.log(id)
     dispatch(getDogsById(id));
   }, [dispatch, id]);
 

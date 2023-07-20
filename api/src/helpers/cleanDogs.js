@@ -7,7 +7,7 @@ const cleanDogs = (data) => {
       height: element.height.metric,
       weight: element.weight.metric,
       lifeSpan: element.life_span,
-      temperament: element.temperament,
+      temperament: element.temperament ?? "No temperament available",
     };
   });
 };

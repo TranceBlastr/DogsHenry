@@ -1,9 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import styles from "./Landing.module.css";
+import { useDispatch } from 'react-redux';
+import { getAllDogs } from '../../redux/actions';
 
 const Landing = () => {
-  return (
+const dispatch = useDispatch()
+useEffect (()=>{
+  dispatch(getAllDogs())
+}, [dispatch])
+
+return (
     <div className={styles.landing}>
       <div className={styles.divLeft}>
         

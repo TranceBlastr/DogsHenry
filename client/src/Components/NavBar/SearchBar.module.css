@@ -1,11 +1,28 @@
-.searchBox{
-  /* -webkit-appearance: none; */
+.searchBox {
   display: flex;
-  flex-direction: row;
-  border: none;
-  padding: 10px;
-  width: 150px;
-  line-height: 30px;
-  margin-bottom: 30px;
-  background-color: blue;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
 }
+/* .button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 20 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-size: 24px 24px; 
+  background-repeat: no-repeat;
+  display: flex;
+  background-position: center;
+  background-image: url("../../image/botones/search.png");
+}
+
+.button:hover {
+  background-color: #357e3a;
+}
+
+.button:active {
+  transform: scale(0.95);
+} */
