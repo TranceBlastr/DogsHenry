@@ -40,8 +40,7 @@ const postDogController = async (
     await Promise.all(temperamentPromises);
   } catch (error) {
     console.log(error);
-    // throw new Error("Error al postear el perro");
-    throw new Error({ error: error.message });
+    throw new Error("Error al postear el perro");
   }
 };
 module.exports = { postDogController };

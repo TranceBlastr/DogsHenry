@@ -9,7 +9,8 @@ const dogsByIdHandler = async (req, res) => {
 
     res.status(200).json(dog);
   } catch (error) {
-    res.status(404).json({ error: error.message });
+    console.log(error);
+    res.status(404).json("Error en dogsByIdHandler");
   }
 };
 

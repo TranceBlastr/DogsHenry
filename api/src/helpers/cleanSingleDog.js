@@ -1,6 +1,5 @@
 const cleanSingleDog = (dog) => {
   return {
-    // pk: dog.id,
     id: dog.id,
     name: dog.name,
     image: dog.image.url,

@@ -14,14 +14,9 @@ const dogTemperamentsController = async (req, res) => {
     await Temperament.bulkCreate(temperFromApi);
     return temperFromApi;
   } catch (error) {
-    res.status(400).json({ error: error.message });
-    // throw new Error("Error de dogTemperamentsController");
+    console.log(error);
+    throw new Error("Error de dogTemperamentsController");
   }
 };
 
 module.exports = { dogTemperamentsController };
-
-/* busco en db, si no hay, hago la peticion
-mapeo la info y guardo en db
-devuelvo todo
-*/

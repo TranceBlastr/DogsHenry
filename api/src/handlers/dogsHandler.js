@@ -10,7 +10,8 @@ const dogsHandler = async (req, res) => {
       : await allDogsController();
     res.status(200).json(dogs);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    console.log(error);
+    res.status(400).json("Error en dogsHandler");
   }
 };
 

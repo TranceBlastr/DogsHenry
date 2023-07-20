@@ -108,19 +108,19 @@ function rootReducer(state = initialState, action) {
         const aWeight = a.weight.split(" - ")[0];
         const bWeight = b.weight.split(" - ")[0];
 
-        // Comparar cuando ambos tienen números
+        // Compara cuando ambos tienen numeros
         if (!isNaN(aWeight) && !isNaN(bWeight)) {
           return action.payload === "asc"
             ? aWeight - bWeight
             : bWeight - aWeight;
         }
 
-        // Colocar "NaN" al final en el ordenamiento
+        // Mueve "NaN" al final en el ordenamiento
         if (isNaN(aWeight) && isNaN(bWeight)) {
           return action.payload === "asc" ? 1 : -1;
         }
 
-        // Colocar "NaN" al final y números al inicio
+        // Mueve "NaN" al final y numeros al inicio
         return isNaN(aWeight) ? 1 : -1;
       });
 

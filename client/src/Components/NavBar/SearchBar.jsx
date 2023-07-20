@@ -10,9 +10,6 @@ function SearchBar({ handleChange, handleSubmit }) {
         </form>
       </div>
       <div>
-        {/* <button type="submit" className= {styles.button} onClick={handleSubmit}>
-          Buscar
-        </button> */}
          <ButtonSearch onClick={handleSubmit} />
       </div>
     </div>

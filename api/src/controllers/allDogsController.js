@@ -19,6 +19,7 @@ const allDogsController = async () => {
 
     return [...dogsInDBWithTemperament, ...dogsInApi];
   } catch (error) {
+    console.log(error);
     throw new Error("Error en allDogsController");
   }
 };

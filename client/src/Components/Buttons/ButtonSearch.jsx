@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Buttons.module.css'; // Asegúrate de importar el archivo de estilos correcto
+import styles from './Buttons.module.css';
 
 const ButtonSearch = ({ onClick }) => {
   return (

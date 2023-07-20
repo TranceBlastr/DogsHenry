@@ -21,7 +21,6 @@ align-items: center;
     background-image: url(../../image/logo-landing.png);
     grid-column: 2 / 10;
     grid-row: 1;
-    /* outline: 1px solid black; */
     width: 25vw;
     height: 50vh;
     border-radius: 100%;
@@ -50,7 +49,6 @@ grid-column: 9 / 10;
 grid-row: 1;
 justify-content:center;
 align-items: center;
-/* border: 1px solid black; */
 position:absolute left;
 width: 38vw;
 height: 90vh;

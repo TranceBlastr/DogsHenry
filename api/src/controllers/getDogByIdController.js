@@ -9,7 +9,6 @@ const getDogByIdController = async (id) => {
 
   try {
     if (id.includes("-")) {
-      // Si el id contiene un guión, significa que es un uuid y lo buscamos en la base de datos
       const dogInDB = await Dog.findOne({
         where: { id: id },
         include: Temperament,
@@ -19,11 +18,9 @@ const getDogByIdController = async (id) => {
         throw new Error("Perro no encontrado en la base de datos");
       }
 
-      // Usamos la función mapTemperaments para obtener el objeto con los temperamentos ajustados
       const dogWithTemperaments = cleanDogFromDB(dogInDB);
       return dogWithTemperaments;
     } else {
-      // Si el id no contiene un guión, significa que es un id numérico y lo buscamos en la API externa
       const { data } = await axios.get(
         `https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`
       );

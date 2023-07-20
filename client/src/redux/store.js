@@ -10,5 +10,3 @@ const store = createStore(
 );
 
 export default store;
-
-// thunkmiddleware para manejar asincronia

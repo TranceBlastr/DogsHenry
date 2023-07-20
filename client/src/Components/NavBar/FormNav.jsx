@@ -10,7 +10,6 @@ const FormNav = () => {
       <ButtonHome />
       </div>
       <div className={styles.center}>
-      {/* <h1>Creating a new dog!</h1> */}
       <img src={logo} alt="" className={styles.image} />
       
       </div>

@@ -1,4 +1,3 @@
-/* Estilos compartidos */
 .button,
 .buttonHome,
 .buttonLanding,
@@ -50,7 +49,6 @@
 }
 
 .buttonSearch{
-  /* background-image: url("../../image/botones/search.png"); */
   padding: 8px 8px;
 }
 

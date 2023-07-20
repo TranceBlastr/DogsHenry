@@ -8,10 +8,11 @@ const Card = ({dog}) => {
       <div className={styles.card} >
         
         <img src={dog.image.url || dog.image} alt="Unavailable" />
-        {/* <h1>Breed:</h1> */}
         <h1>{dog.name}</h1>
        <h3>Temperament</h3>
         <p>{dog.temperament}</p>
+        <p>Peso</p>
+        <p>{dog.weight}</p>
       </div>
     </Link>
   );
