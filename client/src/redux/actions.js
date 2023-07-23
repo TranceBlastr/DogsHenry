@@ -28,13 +28,22 @@ export function getDogsById(id) {
     });
   };
 }
+
 export function getDogByName(name) {
   return async function (dispatch) {
-    const response = await axios.get(`http://localhost:3001/dogs?name=${name}`);
-    return dispatch({
-      type: GET_DOG_BY_NAME,
-      payload: response.data,
-    });
+    try {
+      const response = await axios.get(
+        `http://localhost:3001/dogs?name=${name}`
+      );
+
+      return dispatch({
+        type: GET_DOG_BY_NAME,
+        payload: response.data,
+      });
+    } catch (error) {
+      console.log(error);
+      alert(error.response.data.error);
+    }
   };
 }
 export function getTemperament() {

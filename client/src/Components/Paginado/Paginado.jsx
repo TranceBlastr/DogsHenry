@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable array-callback-return */
 import React from "react";
 import styles from "./Paginado.module.css";
 

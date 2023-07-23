@@ -30,6 +30,8 @@ const dogByNameController = async (name) => {
       const cleanedDog = cleanSingleDog(dogInApi);
       return [cleanedDog];
     }
+
+    throw new Error("No se encontro ninguna raza con ese nombre");
   } catch (error) {
     console.log(error);
     throw new Error("Error en dogByNameController/ perro no encontrado");

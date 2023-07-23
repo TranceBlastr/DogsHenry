@@ -11,7 +11,7 @@ const dogsHandler = async (req, res) => {
     res.status(200).json(dogs);
   } catch (error) {
     console.log(error);
-    res.status(400).json("Error en dogsHandler");
+    res.status(400).json({ error: error.message });
   }
 };
 
